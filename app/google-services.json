@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "713266569813",
+    "firebase_url": "https://moboapps-98b7e.firebaseio.com",
+    "project_id": "moboapps-98b7e",
+    "storage_bucket": "moboapps-98b7e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713266569813:android:bf27236485470e72986adc",
+        "android_client_info": {
+          "package_name": "com.mobo.funplay.gamebox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713266569813-6ro325lo3ua0rmaok2e8up0696v4vrkk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHVxCQaTfAUjSTbPLXBx0RCv_YV8XoghA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713266569813-6ro325lo3ua0rmaok2e8up0696v4vrkk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

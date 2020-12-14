@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <!--主页Title背景色-->
+    <color name="activity_tab">#BEC9EB</color>
+    <!--tab标题字体色-->
+    <color name="activity_tab_text">#1C243B</color><!--选择状态 && title与之色值一致-->
+    <color name="activity_tab_text_1">#6C7692</color><!--未选中状态-->
+    <!--主页背景色-->
+    <color name="activity_bg">#E4E7EE</color>
+    <!--加载更多字体颜色-->
+    <color name="is_loading_color">#545557</color>
+    <!--fail 按钮背景色-->
+    <color name="fail_bg_color">#656CC9</color>
+    <!--SwipeRefreshLayout Color Scheme-->
+    <color name="refresh_bar_scheme">#272727</color>
+    <!--确认dialog 按钮颜色-->
+    <color name="dialog_confirm">#939AF1</color>
+
+    <!--see more-->
+    <drawable name="mine_item_normal">@android:color/transparent</drawable>
+    <drawable name="mine_item_press">#CBCBCB</drawable>
+
+</resources>

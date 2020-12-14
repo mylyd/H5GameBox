@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name">H5 Game Browser</string>
+
+    <string name="fb_app_id">583965658933691</string>
+    <string name="gms_app_id">ca-app-pub-4791268687937131~7277097552</string>
+
+    <string name="privacy_url">https://sites.google.com/view/h5gamebox/%E9%A6%96%E9%A1%B5</string>
+
+    <string name="rating_url">https://play.google.com/store/apps/details?id=com.mobo.funplay.gamebox</string>
+
+    <string name="load_more_fail">Failed to load,Click to retry</string>
+    <string name="more_wallpapers_waiting_to_be_updated">More wallpapers waiting to be updated</string>
+    <string name="is_loading_more">is Loading more&#8230;</string>
+    <string name="game_is_loading">Please wait a moment, the game is loading&#8230;</string>
+    <string name="get_feed_failed">No related games found, please \nchange words</string>
+    <string name="get_internet_failed">No internet connection, please \ncheck the network status.</string>
+    <string name="no_result">No Result</string>
+    <string name="no_internet">No Internet</string>
+    <string name="no_collect_content">No Collect Content</string>
+    <string name="no_data_needed">Please click❤collection game</string>
+    <string name="v">v</string>
+    <string name="version">Version</string>
+    <string name="refresh">Refresh</string>
+    <string name="game_box">Game Box</string>
+    <string name="game">Game</string>
+    <string name="category">Category</string>
+    <string name="mine">Mine</string>
+    <string name="hot">Hot</string>
+    <string name="nulls"> </string>
+    <string name="search">Search</string>
+    <string name="search_web">Search or enter address</string>
+    <string name="enter">Enter</string>
+    <string name="confirm">Confirm</string>
+    <string name="search_history">Search History</string>
+    <string name="search_recommended">Recommended search</string>
+    <string name="delete_history">Delete History</string>
+    <string name="loading">Loading&#8230;</string>
+    <string name="privacy">Privacy Policy</string>
+
+    <string name="share_content">Let you experience smooth H5 games anytime, anywhere  ! DownLoad it now : https://play.google.com/store/apps/details?id=com.mobo.funplay.gamebox</string>
+
+    <string name="about_us">About Us</string>
+    <string name="share_facebook">Facebook</string>
+    <string name="share_it">Share It</string>
+    <string name="five_stars">Five Stars</string>
+    <string name="my_collection">My Collection</string>
+    <string name="more_game">More Game</string>
+    <string name="see_more">See More >></string>
+    <string name="collection">Collection</string>
+    <string name="next">Next!</string>
+    <string name="more">More</string>
+    <string name="exit">Exit</string>
+    <string name="play">PLAY</string>
+    <string name="hot_today">HOT TODAY</string>
+
+    <string name="rating_dialog_title">Five Stars</string>
+    <string name="rating_dialog_content">If you like our application, please \nsupport us with five stars</string>
+    <string name="collect_game">Collect Game</string>
+    <string name="collect_game_content">Add the game to your favorite list so you can find it next time!</string>
+    <string name="quit_app">Quit App</string>
+    <string name="quit_app_content">Are you sure,want to exit?</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+
+    <string name="rating_feedback_title">Feedback</string>
+    <string name="rating_feedback_content">We are sincerely looking \nforward to your feedback!</string>
+    <string name="confirm_to_delete_all_history">Confirm to delete all history</string>
+    <string name="no_results_match_your_search">No related games found, please change words</string>
+    <string name="email_tint">Please enter your email</string>
+    <string name="suggestion_tint">Please enter your suggestion</string>
+
+    <string name="roboto_regular" translatable="false">sans-serif</string>
+
+
+</resources>

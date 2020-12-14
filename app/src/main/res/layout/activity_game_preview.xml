@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activity_tab"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:animateLayoutChanges="true">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <WebView
+                android:id="@+id/web_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/see_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="10dp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/see_more"
+                android:gravity="center"
+                android:text="@string/see_more"
+                android:paddingLeft="16dp"
+                android:paddingRight="12dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textSize="12dp"
+                android:visibility="gone"/>
+
+        </FrameLayout>
+
+        <include
+            android:id="@+id/web_bottom_item"
+            layout="@layout/web_view_bottom_item"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/web_view_loading" />
+
+</FrameLayout>

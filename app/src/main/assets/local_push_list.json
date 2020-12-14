@@ -1,0 +1,115 @@
+{
+  "interval": [
+    5,
+    20,
+    1440
+  ],
+  "messages": [
+    [
+      {
+        "order": 1,
+        "time_interval": 5,
+        "title": "Helix Jump",
+        "desc": "Simple and interesting games are very popular, and they are powerful decompression tools, so as Helix Jump. ",
+        "icon_url": "https://www.coldchick.xyz/uploads/gamepic/Helix-Jump.jpg",
+        "preview_url": "",
+        "link": "https://www.coldchick.xyz/admin/domains/games?gameid=27&classid=32",
+        "id": 7
+      }
+    ],
+    [
+      {
+        "order": 2,
+        "time_interval": 20,
+        "title": "Don't Crash",
+        "desc": "The cool racing game for android, iPhone, iPad and other mobile devices has only one rule: Don't crash! Change the lane to avoid a crash. How long can you drive?.",
+        "icon_url": "https://www.coldchick.xyz/uploads/gamepic/Don-T-Crash.jpg",
+        "preview_url": "",
+        "link": "https://www.coldchick.xyz/admin/domains/games?gameid=672&classid=5",
+        "id": 8
+      }
+    ],
+    [
+      {
+        "order": 3,
+        "time_interval": 1440,
+        "title": "Slices",
+        "desc": "Slices is a simple and addictive alternative jigsaw puzzle game, you need to constantly click on one circle to place slices, complete a complete circle. Note that before all circles are filled",
+        "icon_url": "https://www.coldchick.xyz/uploads/gamepic/Slices.jpg",
+        "preview_url": "",
+        "link": "https://www.coldchick.xyz/admin/domains/games?gameid=16&classid=90",
+        "id": 9
+      },
+      {
+        "order": 4,
+        "time_interval": 1440,
+        "title": "Wheelie Bike",
+        "desc": "Recently, the stickman wants to enter the wheelie competition in the city. Now can you help him to master the stunt, the front wheel off the ground and keep moving?",
+        "icon_url": "https://www.coldchick.xyz/uploads/gamepic/Wheelie-Bike.jpg",
+        "preview_url": "",
+        "link": "https://www.coldchick.xyz/admin/domains/games?gameid=11&classid=5",
+        "id": 10
+      },
+      {
+        "order": 5,
+        "time_interval": 1440,
+        "title": "Mini Golf",
+        "desc": "Mini Golf is a new great sports game you can play everywhere and anytime",
+        "icon_url": "https://www.coldchick.xyz/uploads/gamepic/Mini-Golf.jpg",
+        "preview_url": "",
+        "link": "https://www.coldchick.xyz/admin/domains/games?gameid=17&classid=32",
+        "id": 11
+      },
+      {
+        "order": 6,
+        "time_interval": 1440,
+        "title": "Ballz Online",
+        "desc": "If you are finding the champion of time killer, don't miss this Html 5 game Ballz Online",
+        "icon_url": "https://www.coldchick.xyz/uploads/gamepic/Ballz-Online.jpg",
+        "preview_url": "",
+        "link": "https://www.coldchick.xyz/admin/domains/games?gameid=164&classid=32",
+        "id": 12
+      },
+      {
+        "order": 7,
+        "time_interval": 1440,
+        "title": "Dunk Line",
+        "desc": "It's a simple basketball game. It is different from other basketball games",
+        "icon_url": "https://www.coldchick.xyz/uploads/gamepic/Dunk-Line.jpg",
+        "preview_url": "",
+        "link": "https://www.coldchick.xyz/admin/domains/games?gameid=97&classid=32",
+        "id": 13
+      },
+      {
+        "order": 8,
+        "time_interval": 1440,
+        "title": "One Line Game",
+        "desc": "One Line is a brain trainer that activates your mind while you are having a relaxed fun",
+        "icon_url": "https://www.coldchick.xyz/uploads/gamepic/One-Line.jpg",
+        "preview_url": "",
+        "link": "https://www.coldchick.xyz/admin/domains/games?gameid=19&classid=3",
+        "id": 14
+      },
+      {
+        "order": 9,
+        "time_interval": 1440,
+        "title": "Stickman Archer Online 4",
+        "desc": "After previous three shooting games' experience, our stickman has became more and more skilled",
+        "icon_url": "https://www.coldchick.xyz/uploads/gamepic/Stickman-Archer-Online-4.jpg",
+        "preview_url": "",
+        "link": "https://www.coldchick.xyz/admin/domains/games?gameid=53&classid=3",
+        "id": 15
+      },
+      {
+        "order": 10,
+        "time_interval": 1440,
+        "title": "Click Beheaded",
+        "desc": "Click Beheaded is an addicting online arcade game.",
+        "icon_url": "https://www.coldchick.xyz/uploads/gamepic/Click-Beheaded.jpg",
+        "preview_url": "",
+        "link": "https://www.coldchick.xyz/admin/domains/games?gameid=125&classid=3",
+        "id": 16
+      }
+    ]
+  ]
+}

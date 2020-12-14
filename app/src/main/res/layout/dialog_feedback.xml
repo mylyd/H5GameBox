@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_rating"
+    android:layout_width="270dp"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_rating_dialog"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <ImageView
+        android:id="@+id/dialog_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dialog_back"
+        android:padding="2dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/rating_feedback_title"
+        android:textColor="@color/activity_tab_text"
+        android:textSize="@dimen/text_size_18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/rating_feedback_content"
+        android:textColor="@color/activity_tab_text"
+        android:textSize="15dp" />
+
+    <EditText
+        android:id="@+id/et_email"
+        android:hint="@string/email_tint"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="@dimen/dp_12"
+        android:layout_marginLeft="28dp"
+        android:layout_marginRight="28dp"
+        android:paddingLeft="12dp"
+        android:maxLines="1"
+        android:textColor="@color/activity_tab_text"
+        android:background="@drawable/bg_edit_dialog"
+        android:textColorHint="#B3B4B5"
+        android:textSize="12dp" />
+
+    <EditText
+        android:id="@+id/et_suggestion"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginTop="@dimen/dp_4"
+        android:paddingLeft="12dp"
+        android:background="@drawable/bg_edit_dialog"
+        android:textColor="@color/activity_tab_text"
+        android:textColorHint="#B3B4B5"
+        android:textSize="12dp"
+        android:hint="@string/suggestion_tint" />
+
+    <TextView
+        android:id="@+id/btn_submit"
+        android:layout_width="82dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/dialog_btn_submit_background"
+        android:text="@string/submit"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@android:color/white"
+        android:textSize="12dp" />
+</LinearLayout>
+

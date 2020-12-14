@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@color/activity_tab"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp">
+
+        <EditText
+            android:id="@+id/web_edit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/search_background"
+            android:ellipsize="end"
+            android:gravity="center_vertical|start|left"
+            android:hint="@string/search_web"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:singleLine="true"
+            android:textColor="#3C455E"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_close_black"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="android:typeface">serif</item>-->
+    </style>
+
+    <!--开屏页-->
+    <style name="SplashTheme" parent="AppTheme">
+        <!-- Customize your theme here. 开启App时最开始一段白屏-->
+        <item name="android:windowBackground">@color/activity_tab</item>
+    </style>
+
+    <!--设置评分控件属性-->
+    <style name="RatingStyle" parent="Widget.AppCompat.RatingBar">
+        <item name="android:progressDrawable">@drawable/selector_rating_bar</item>
+        <item name="android:minHeight">30dp</item>
+        <item name="android:maxHeight">30dp</item>
+    </style>
+
+    <!--缩放动画-->
+    <style name="dialog_scale_style">
+        <item name="android:windowEnterAnimation">@anim/dialog_scale_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_scale_exit</item>
+    </style>
+
+    <!--从下往上平移动画效果-->
+    <style name="bottom_dialog_anim_style">
+        <!-- 指定显示的动画xml -->
+        <item name="android:windowEnterAnimation">@anim/below_show</item>
+        <!-- 指定消失的动画xml -->
+        <item name="android:windowExitAnimation">@anim/below_hidden</item>
+    </style>
+
+    <!--从上往下平移动画效果-->
+    <style name="top_dialog_anim_style">
+        <!-- 指定显示的动画xml -->
+        <item name="android:windowEnterAnimation">@anim/top_show</item>
+        <!-- 指定消失的动画xml -->
+        <item name="android:windowExitAnimation">@anim/top_hidden</item>
+    </style>
+
+    <style name="dialog_soft_input" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowSoftInputMode">adjustPan</item>
+    </style>
+
+</resources>

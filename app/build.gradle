@@ -1,0 +1,92 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.mobo.funplay.gamebox"
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 5
+        versionName "0.0.5"
+
+        multiDexEnabled true
+    }
+
+    signingConfigs {
+        release {
+            keyAlias "mobo"
+            keyPassword "com.moboapps.jks"
+            storeFile file("../key/key.jks")
+            storePassword "com.moboapps.jks"
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            if (outputFileName != null) {
+                outputFileName = outputFileName.replace("app-", "")
+                        .replace("-release", "_v${versionName}_release")
+                        .replace("-debug", "_v${versionName}_debug")
+            }
+        }
+    }
+
+    // 屏蔽 task (crashlyticsUploadDeobsRelease)
+    gradle.taskGraph.whenReady {
+        tasks.each { task ->
+            if (task.name.contains("crashlyticsUpload")) {
+                task.enabled = false
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+    implementation 'com.google.firebase:firebase-ads-lite:19.2.0'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+
+    implementation 'com.facebook.android:facebook-android-sdk:5.15.3'
+    implementation 'com.facebook.android:audience-network-sdk:5.7.1'
+
+    implementation 'com.youth.banner:banner:1.4.10'
+
+    implementation 'com.mobo.android.ads:ads-mvp:1.1.0'
+}

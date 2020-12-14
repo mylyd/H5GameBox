@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mobo.funplay.gamebox.views.RoundFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    app:radius="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/iv_game"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_thumb" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical|start|left"
+                    android:maxLines="1"
+                    android:paddingLeft="5dp"
+                    android:text="Spiral Stairs"
+                    android:textColor="#1C243B"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/tv_like"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical|start|left"
+                    android:maxLines="1"
+                    android:paddingLeft="5dp"
+                    android:text="2305"
+                    android:drawableLeft="@drawable/item_hot"
+                    android:drawablePadding="5dp"
+                    android:textColor="#787D8A"
+                    android:textSize="8sp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_collect"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/item_like_selector"
+                tools:ignore="InvalidId"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.mobo.funplay.gamebox.views.RoundFrameLayout>

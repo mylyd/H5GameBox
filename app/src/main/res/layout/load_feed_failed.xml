@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center"
+    android:layout_marginLeft="64dp"
+    android:layout_marginRight="64dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/fail_img"
+        android:layout_gravity="center"
+        android:src="@drawable/load_failed_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/fail_title"
+        android:gravity="center"
+        android:layout_marginTop="12dp"
+        android:layout_gravity="center"
+        android:textColor="@color/activity_tab_text"
+        android:textSize="18dp"
+        android:text="@string/no_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/fail_content"
+        android:gravity="center"
+        android:layout_marginTop="12dp"
+        android:layout_gravity="center"
+        android:textColor="#7C7E83"
+        android:textSize="14dp"
+        android:text="@string/get_feed_failed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_reload"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="@drawable/diamond_background"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="16dp"
+        android:text="@string/refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

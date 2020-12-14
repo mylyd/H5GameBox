@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="@color/activity_tab">
+
+    <include layout="@layout/item_action_layout"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/activity_bg"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/home_icon"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="48dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#3C455E"
+            android:textSize="18dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/app_name"
+            android:layout_marginTop="10dp"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#3C455E"
+                android:textSize="16dp"
+                android:layout_marginLeft="12dp"
+                android:layout_gravity="center_vertical|start|left"
+                android:text="@string/version"/>
+
+            <TextView
+                android:id="@+id/tv_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#6C7692"
+                android:textSize="14dp"
+                android:layout_marginRight="12dp"
+                android:layout_gravity="center_vertical|end|right"
+                android:text="v0.0.1"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/activity_bg">
+
+        <TextView
+            android:id="@+id/tv_privacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="40dp"
+            android:text="@string/privacy"
+            android:textColor="#4E586E"
+            android:background="@drawable/mine_item"
+            android:textSize="15dp" />
+
+    </FrameLayout>
+</LinearLayout>

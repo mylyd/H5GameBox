@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mobo.funplay.gamebox.views.RoundFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    app:radius="5dp">
+
+    <!--<com.dolphin.ads.view.NativeNoControllView
+        android:id="@+id/layout_native_ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />-->
+
+</com.mobo.funplay.gamebox.views.RoundFrameLayout>

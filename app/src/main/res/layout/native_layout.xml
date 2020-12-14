@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ad.mobo.base.view.NativeSimpleControllView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/ad_background"
+    android:layout_marginBottom="6dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+</ad.mobo.base.view.NativeSimpleControllView>

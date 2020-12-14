@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/action_bar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/action_bar"
+    android:background="@color/activity_tab">
+
+    <ImageView
+        android:id="@+id/action_search"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical|start"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/ic_search"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/action_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text=""
+        android:textColor="@color/activity_tab_text"
+        android:textSize="18dp" />
+
+    <ImageView
+        android:id="@+id/action_game_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/home_game_more"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginRight="16dp"
+        android:visibility="gone"/>
+
+</FrameLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="@color/activity_tab">
+
+    <include layout="@layout/item_action_layout"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/activity_bg">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_collection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/layout_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:src="@drawable/no_collection_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:gravity="center"
+                android:layout_marginTop="12dp"
+                android:layout_gravity="center"
+                android:textColor="@color/activity_tab_text"
+                android:textSize="18dp"
+                android:text="@string/no_collect_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:gravity="center"
+                android:layout_marginTop="12dp"
+                android:layout_gravity="center"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14dp"
+                android:text="@string/no_data_needed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_confirm"
+                android:layout_width="100dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="18dp"
+                android:text="@string/next"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:textSize="14dp"
+                android:background="@drawable/dialog_btn_bg" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

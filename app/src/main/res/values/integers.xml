@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="tab_main_icons">
+        <item>@drawable/tab_game_selector</item>
+        <item>@drawable/tab_category_selector</item>
+        <item>@drawable/tab_mine_selector</item>
+    </array>
+
+    <array name="tab_main_hot_icons">
+        <item>@drawable/tab_game_selector</item>
+        <item>@drawable/tab_category_selector</item>
+        <item>@drawable/tab_hot_selector</item>
+        <item>@drawable/tab_mine_selector</item>
+    </array>
+</resources>
