@@ -52,16 +52,6 @@
 
         <activity android:name="com.facebook.FacebookActivity" />
 
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/gms_app_id" />
-
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/fb_app_id" />
-        <meta-data
-            android:name="com.google.android.gms.values"
-            android:value="@integer/google_play_services_version" /> <!-- google 服务 -->
         <provider
             android:name="com.facebook.FacebookContentProvider"
             android:authorities="com.facebook.app.FacebookContentProvider583965658933691"

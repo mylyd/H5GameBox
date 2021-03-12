@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'io.fabric'
 apply plugin: 'com.google.gms.google-services'
 
 android {
@@ -81,12 +80,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 
     implementation 'com.google.firebase:firebase-ads-lite:19.2.0'
-    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
-
-    implementation 'com.facebook.android:facebook-android-sdk:5.15.3'
-    implementation 'com.facebook.android:audience-network-sdk:5.7.1'
 
     implementation 'com.youth.banner:banner:1.4.10'
 
-    implementation 'com.mobo.android.ads:ads-mvp:1.1.0'
 }

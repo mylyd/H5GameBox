@@ -51,9 +51,6 @@ public class MyApp extends MultiDexApplication {
 
         initScreenSize();
 
-        FirebaseTracker.getInstance().init(this);
-        FacebookTracker.getInstance().init(this);
-        FacebookSdk.setAutoLogAppEventsEnabled(true);
         requestGray();
         LocalPushManager.getInstance().requestConfig(this);
         LocalGamePushManager.getInstance().Request(this);
