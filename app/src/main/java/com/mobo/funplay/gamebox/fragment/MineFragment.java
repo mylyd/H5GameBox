@@ -1,13 +1,11 @@
 package com.mobo.funplay.gamebox.fragment;
 
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 
-import android.view.View;
-
-import com.facebook.CallbackManager;
 import com.mobo.funplay.gamebox.R;
 import com.mobo.funplay.gamebox.activity.AboutUsActivity;
 import com.mobo.funplay.gamebox.activity.GamePreviewActivity;
@@ -16,7 +14,6 @@ import com.mobo.funplay.gamebox.bean.GameItemBean;
 import com.mobo.funplay.gamebox.constants.Constants;
 import com.mobo.funplay.gamebox.dialog.FeedbackDialog;
 import com.mobo.funplay.gamebox.dialog.RatingDialog;
-import com.mobo.funplay.gamebox.tracker.MyTracker;
 import com.mobo.funplay.gamebox.utils.GradeUtils;
 import com.mobo.funplay.gamebox.utils.ShareUtil;
 
@@ -28,7 +25,6 @@ import com.mobo.funplay.gamebox.utils.ShareUtil;
 public class MineFragment extends BaseFragment {
     private RatingDialog mRatingDialog;
     private FeedbackDialog mFeedbackDialog;
-    private CallbackManager callbackManager;
 
     public static MineFragment newInstance() {
         return new MineFragment();
@@ -57,14 +53,13 @@ public class MineFragment extends BaseFragment {
         findViewById(R.id.ll_share_it).setOnClickListener(this::onClicked);
         findViewById(R.id.ll_about_us).setOnClickListener(this::onClicked);
         findViewById(R.id.ll_share_facebook).setOnClickListener(this::onClicked);
-        callbackManager = CallbackManager.Factory.create();
 
         mRatingDialog = new RatingDialog(getContext());
         mFeedbackDialog = new FeedbackDialog(getContext());
     }
 
     private void initData() {
-        track(MyTracker.show_mine_page_, 1);
+
     }
 
     private void initListener() {
@@ -83,6 +78,7 @@ public class MineFragment extends BaseFragment {
         });
     }
 
+    @SuppressLint("NonConstantResourceId")
     public void onClicked(View view) {
         switch (view.getId()) {
             case R.id.ll_more_game:
@@ -99,25 +95,17 @@ public class MineFragment extends BaseFragment {
             case R.id.ll_five_stars:
                 if (mRatingDialog != null && !mRatingDialog.isShowing()) {
                     mRatingDialog.show();
-                    track(MyTracker.click_rateus);
                 }
                 break;
             case R.id.ll_share_it:
                 ShareUtil.share(getContext(), getString(R.string.share_content));
-                track(MyTracker.click_share);
                 break;
             case R.id.ll_about_us:
                 AboutUsActivity.newStart(this);
                 break;
             case R.id.ll_share_facebook:
-                ShareUtil.shareFacebook(this, callbackManager);
                 break;
         }
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
-    }
 }

@@ -4,12 +4,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.google.android.gms.common.util.CollectionUtils;
 import com.mobo.funplay.gamebox.bean.push.LocalPushMessage;
 import com.mobo.funplay.gamebox.interfaces.GrayStatus;
 import com.mobo.funplay.gamebox.manager.SPManager;
-import com.mobo.funplay.gamebox.tracker.FirebaseTracker;
-import com.mobo.funplay.gamebox.tracker.MyTracker;
 import com.mobo.funplay.gamebox.utils.SystemUtils;
 
 import java.util.List;
@@ -40,7 +37,7 @@ public class LocalPushReceiver extends BroadcastReceiver {
         if (!GrayStatus.push_H5) return;
 
         List<LocalPushMessage> messages = SPManager.getInstance().getLocalPushMessageList();
-        if (CollectionUtils.isEmpty(messages)) return;
+        if (messages == null || messages.isEmpty()) return;
 
         boolean isRepeatPush = intent.getBooleanExtra(PushConstants.IS_REPEAT_PUSH, false);
         int index = intent.getIntExtra(PushConstants.LOCAL_PUSH_MSG_INDEX, 0);
@@ -49,17 +46,10 @@ public class LocalPushReceiver extends BroadcastReceiver {
         }
 
         PushNotificationManager.showNotification(context, isRepeatPush, index, messages.get(index));
-        if (index == 0 && !isRepeatPush) {
-            FirebaseTracker.getInstance().track(MyTracker.PUSH_FRIST_SHOW);
-        } else if (index == 1 && !isRepeatPush) {
-            FirebaseTracker.getInstance().track(MyTracker.PUSH_SECOND_SHOW);
-        } else {
-            FirebaseTracker.getInstance().track(MyTracker.PUSH_THIRD_SHOW);
-        }
 
         if (isRepeatPush) {
             List<Integer> intervals = SPManager.getInstance().getLocalPushIntervalList();
-            if (CollectionUtils.isEmpty(intervals)) return;
+            if (intervals == null || intervals.isEmpty()) return;
             LocalPushManager.startRepeatPush(context, intervals.get(intervals.size() - 1), ++index);
         }
     }
@@ -74,15 +64,6 @@ public class LocalPushReceiver extends BroadcastReceiver {
         String link = intent.getStringExtra(PushConstants.LOCAL_PUSH_LINK);
         int index = intent.getIntExtra(PushConstants.LOCAL_PUSH_MSG_INDEX, 0);
         boolean isRepeatPush = intent.getBooleanExtra(PushConstants.IS_REPEAT_PUSH, false);
-
         SystemUtils.startWebView(context, link);
-
-        if (index == 0 && !isRepeatPush) {
-            FirebaseTracker.getInstance().track(MyTracker.PUSH_FRIST_CLICK);
-        } else if (index == 1 && !isRepeatPush) {
-            FirebaseTracker.getInstance().track(MyTracker.PUSH_SECOND_CLICK);
-        } else {
-            FirebaseTracker.getInstance().track(MyTracker.PUSH_THIRD_CLICK);
-        }
     }
 }

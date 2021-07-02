@@ -4,8 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -18,27 +16,17 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookDialog;
-import com.facebook.FacebookException;
-import com.facebook.share.Sharer;
-import com.facebook.share.model.ShareLinkContent;
-import com.facebook.share.widget.ShareDialog;
 import com.mobo.funplay.gamebox.R;
 import com.mobo.funplay.gamebox.bean.GameItemBean;
 import com.mobo.funplay.gamebox.constants.Constants;
 import com.mobo.funplay.gamebox.dialog.WebViewSearchDialog;
 import com.mobo.funplay.gamebox.interfaces.GrayStatus;
 import com.mobo.funplay.gamebox.manager.WebViewSeeMoreManager;
-import com.mobo.funplay.gamebox.tracker.MyTracker;
 import com.mobo.funplay.gamebox.utils.ShareUtil;
 
 
@@ -108,7 +96,6 @@ public class GamePreviewActivity extends BaseActivity implements View.OnClickLis
         if (TextUtils.isEmpty(type)) {
             return;
         }
-        trackTag(type, bean.getId());
     }
 
     @Override
@@ -143,7 +130,6 @@ public class GamePreviewActivity extends BaseActivity implements View.OnClickLis
                 Log.d(TAG, "onPageCommitVisible: " + url);
 
                 webToBackIcon(webView.canGoBack(), webView.canGoForward());
-                track(MyTracker.gamedetail_show);
                 //加载成功时回调
                 if (layoutLoading.getVisibility() == View.VISIBLE) {
                     layoutLoading.setVisibility(View.GONE);
@@ -183,7 +169,6 @@ public class GamePreviewActivity extends BaseActivity implements View.OnClickLis
                 if (game_url.contains(Constants.game_url_woso) || game_url.contains(Constants.game_url_yingxian)) {
                     if (!game_url.equals(Constants.game_url_woso_home) && !game_url.equals(Constants.game_url_yingxian_home)) {
                         //当处于游戏主页时，直接返回大到应用主页
-                        track(MyTracker.gamedetail_slide_down);
                         seeMore.setVisibility(View.VISIBLE);
                     }
                 }
@@ -215,35 +200,7 @@ public class GamePreviewActivity extends BaseActivity implements View.OnClickLis
     }
 
     private void facebookShare(String uri) {
-        track(MyTracker.gamedetail_click_share);
         ShareUtil.share(this, getString(R.string.share_content));
-    }
-
-    private void trackTag(String type, int id) {
-        if (type.equals(Constants.GAME_BANNER)) {
-            track(MyTracker.click_banner_, id);
-        } else if (type.equals(Constants.GAME_COLLECTION)) {
-            track(MyTracker.click_collection_img_, id);
-            track(MyTracker.click_collection_img);
-        } else if (type.equals(Constants.GAME_CATE_DETAIL)) {
-            track(MyTracker.click_catedetail_img_, id);
-            track(MyTracker.click_catedetail_img);
-        } else if (type.equals(Constants.GAME_SEARCH_RESULT)) {
-            track(MyTracker.click_searchresult_img_, id);
-            track(MyTracker.click_searchresult_img);
-        } else if (type.equals(Constants.GAME_CATEGORY)) {
-            track(MyTracker.click_category_img_, id);
-            track(MyTracker.click_category_img);
-        } else if (type.equals(Constants.GAME_HOME)) {
-            track(MyTracker.click_game_img_, id);
-            track(MyTracker.click_game_img);
-        } else if (type.equals(Constants.GAME_ICON)) {
-
-        } else if (type.equals(Constants.GAME_HOT)) {
-
-        } else if (type.equals(Constants.GAME_PUSH)) {
-
-        }
     }
 
     /**
@@ -280,6 +237,7 @@ public class GamePreviewActivity extends BaseActivity implements View.OnClickLis
         activity.startActivity(intent);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -304,7 +262,6 @@ public class GamePreviewActivity extends BaseActivity implements View.OnClickLis
                 //TODO 打开搜索
                 if (webViewSearchDialog != null && !webViewSearchDialog.isShowing()) {
                     webViewSearchDialog.show();
-                    track(MyTracker.gamedetail_click_searchbar);
                 }
                 break;
             case R.id.web_home:
@@ -328,7 +285,6 @@ public class GamePreviewActivity extends BaseActivity implements View.OnClickLis
                     return;
                 }
                 webView.loadUrl(bean.getLink());
-                track(MyTracker.gamedetail_click_nextbotton);
                 break;
         }
     }
@@ -351,7 +307,6 @@ public class GamePreviewActivity extends BaseActivity implements View.OnClickLis
         if (game_url.contains(Constants.game_url_woso) || game_url.contains(Constants.game_url_yingxian)) {
             if (game_url.equals(Constants.game_url_woso_home) || game_url.equals(Constants.game_url_yingxian_home)) {
                 //当处于游戏主页时，直接返回大到应用主页
-                track(MyTracker.gamedetail_click_back);
                 super.onBackPressed();
             } else if (isFirstHome) {
                 //如果不处于主页，第一次点击返回按钮返回到主页，如果点击了回退返回了，在点击返回按钮时，直接返回到应用界面
@@ -362,12 +317,10 @@ public class GamePreviewActivity extends BaseActivity implements View.OnClickLis
                 }
                 isFirstHome = false;
             } else {
-                track(MyTracker.gamedetail_click_back);
                 super.onBackPressed();
             }
         } else {
             //当链接处于搜索内容且不是游戏内容时，直接返回到应用页面
-            track(MyTracker.gamedetail_click_back);
             super.onBackPressed();
         }
     }

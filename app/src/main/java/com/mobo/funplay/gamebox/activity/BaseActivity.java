@@ -10,10 +10,6 @@ import android.view.WindowManager;
 
 import androidx.fragment.app.FragmentActivity;
 
-import com.mobo.funplay.gamebox.R;
-import com.mobo.funplay.gamebox.tracker.FacebookTracker;
-import com.mobo.funplay.gamebox.tracker.FirebaseTracker;
-
 
 /**
  * @author : create by zq
@@ -83,37 +79,6 @@ public abstract class BaseActivity extends FragmentActivity {
             } else {
                 getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
             }
-        }
-    }
-
-    protected void track(String track, int id) {
-        track(track, id, true);
-    }
-
-    protected void track(String track) {
-        track(track, true);
-    }
-
-    /**
-     * @param track track字段
-     * @param id    传入的id
-     * @param isFb  是否开启fb track
-     */
-    protected void track(String track, int id, boolean isFb) {
-        FirebaseTracker.getInstance().track(track + id);
-        if (isFb) {
-            FacebookTracker.getInstance().track(track + id);
-        }
-    }
-
-    /**
-     * @param track track字段
-     * @param isFb  是否开启fb track
-     */
-    protected void track(String track, boolean isFb) {
-        FirebaseTracker.getInstance().track(track);
-        if (isFb) {
-            FacebookTracker.getInstance().track(track);
         }
     }
 }

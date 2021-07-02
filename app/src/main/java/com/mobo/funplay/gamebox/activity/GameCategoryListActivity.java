@@ -1,16 +1,16 @@
 package com.mobo.funplay.gamebox.activity;
 
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.mobo.funplay.gamebox.R;
 import com.mobo.funplay.gamebox.adapter.GameCategoryListAdapter;
@@ -22,7 +22,6 @@ import com.mobo.funplay.gamebox.interfaces.GrayStatus;
 import com.mobo.funplay.gamebox.interfaces.ListCallback;
 import com.mobo.funplay.gamebox.manager.RetrofitManager;
 import com.mobo.funplay.gamebox.manager.SPManager;
-import com.mobo.funplay.gamebox.tracker.MyTracker;
 import com.mobo.funplay.gamebox.utils.SystemUtils;
 
 import java.util.Collections;
@@ -192,7 +191,6 @@ public class GameCategoryListActivity extends BaseActivity implements View.OnCli
         mSwipeLayout.setEnabled(true);
         mSwipeLayout.setRefreshing(false);
         listAdapter.reset(data);
-        track(MyTracker.show_catedetail_page_, 1);
     }
 
     @Override

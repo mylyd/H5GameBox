@@ -1,6 +1,5 @@
 package com.mobo.funplay.gamebox;
 
-import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 import android.util.DisplayMetrics;
@@ -9,7 +8,6 @@ import android.view.WindowManager;
 
 import androidx.multidex.MultiDexApplication;
 
-import com.facebook.FacebookSdk;
 import com.mobo.funplay.gamebox.bean.GrayItem;
 import com.mobo.funplay.gamebox.interfaces.CommonCallback;
 import com.mobo.funplay.gamebox.interfaces.GrayStatus;
@@ -17,8 +15,6 @@ import com.mobo.funplay.gamebox.manager.GlobalConfigurationManager;
 import com.mobo.funplay.gamebox.manager.LocalGamePushManager;
 import com.mobo.funplay.gamebox.manager.RetrofitManager;
 import com.mobo.funplay.gamebox.push.LocalPushManager;
-import com.mobo.funplay.gamebox.tracker.FacebookTracker;
-import com.mobo.funplay.gamebox.tracker.FirebaseTracker;
 import com.mobo.funplay.gamebox.utils.MD5Util;
 import com.mobo.funplay.gamebox.utils.SystemUtils;
 import com.mobo.funplay.gamebox.utils.Utils;
@@ -46,8 +42,6 @@ public class MyApp extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         instance = this;
-        // 暂时只有admob广告
-        //AdManager.getInstance().initContext(this).initAdmob(getString(R.string.gms_app_id)).updateStrategy(Utils.getJson(this, "ad.json"));
 
         initScreenSize();
 
@@ -55,7 +49,6 @@ public class MyApp extends MultiDexApplication {
         LocalPushManager.getInstance().requestConfig(this);
         LocalGamePushManager.getInstance().Request(this);
         GlobalConfigurationManager.getInstance().requestConfig(this);
-        //SecurityMgr.init(this);
     }
 
 

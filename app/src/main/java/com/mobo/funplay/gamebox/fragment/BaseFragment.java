@@ -1,6 +1,5 @@
 package com.mobo.funplay.gamebox.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,21 +9,16 @@ import android.widget.TextView;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.mobo.funplay.gamebox.R;
 import com.mobo.funplay.gamebox.activity.GamePreviewActivity;
-import com.mobo.funplay.gamebox.activity.MainActivity;
 import com.mobo.funplay.gamebox.activity.SearchActivity;
 import com.mobo.funplay.gamebox.bean.GameItemBean;
 import com.mobo.funplay.gamebox.constants.Constants;
 import com.mobo.funplay.gamebox.interfaces.GrayStatus;
-import com.mobo.funplay.gamebox.tracker.FacebookTracker;
-import com.mobo.funplay.gamebox.tracker.FirebaseTracker;
-import com.mobo.funplay.gamebox.tracker.MyTracker;
 
 /**
  * Fragment基类
@@ -57,37 +51,6 @@ abstract class BaseFragment extends Fragment {
         }
     }
 
-    protected void track(String track, int id) {
-        track(track, id, true);
-    }
-
-    protected void track(String track) {
-        track(track, true);
-    }
-
-    /**
-     * @param track track字段
-     * @param id    传入的id
-     * @param isFb  是否开启fb track
-     */
-    protected void track(String track, int id, boolean isFb) {
-        FirebaseTracker.getInstance().track(track + id);
-        if (isFb) {
-            FacebookTracker.getInstance().track(track + id);
-        }
-    }
-
-    /**
-     * @param track track字段
-     * @param isFb  是否开启fb track
-     */
-    protected void track(String track, boolean isFb) {
-        FirebaseTracker.getInstance().track(track);
-        if (isFb) {
-            FacebookTracker.getInstance().track(track);
-        }
-    }
-
     protected void replaceFragment(Fragment fragment, @IdRes int res) {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -103,7 +66,6 @@ abstract class BaseFragment extends Fragment {
      */
     protected void forGameHomeUrlListener(@NonNull Fragment fragment, @NonNull ImageView gameIcon) {
         gameIcon.setOnClickListener(v -> {
-            track(MyTracker.click_little_icon);
             GameItemBean gameItemBean = new GameItemBean(
                     Constants.game_url,
                     null, " ", 1);

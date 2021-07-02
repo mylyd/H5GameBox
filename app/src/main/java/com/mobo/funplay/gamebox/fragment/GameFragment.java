@@ -1,28 +1,16 @@
 package com.mobo.funplay.gamebox.fragment;
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.os.Bundle;
-
-import androidx.annotation.IdRes;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
-import android.util.Log;
-import android.view.GestureDetector;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.common.util.CollectionUtils;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.google.android.material.appbar.AppBarLayout;
 import com.mobo.funplay.gamebox.R;
 import com.mobo.funplay.gamebox.adapter.GameHomeAdapter;
@@ -33,7 +21,6 @@ import com.mobo.funplay.gamebox.interfaces.GrayStatus;
 import com.mobo.funplay.gamebox.interfaces.ListCallback;
 import com.mobo.funplay.gamebox.manager.RetrofitManager;
 import com.mobo.funplay.gamebox.manager.SPManager;
-import com.mobo.funplay.gamebox.tracker.MyTracker;
 import com.mobo.funplay.gamebox.utils.AssetsUtil;
 import com.mobo.funplay.gamebox.utils.SystemUtils;
 import com.mobo.funplay.gamebox.views.LoadMoreRecyclerView;
@@ -251,7 +238,6 @@ public class GameFragment extends BaseFragment implements View.OnClickListener, 
 
         if (data.size() > 0) {
             mIndex++;
-            track(MyTracker.show_game_page_, mIndex);
         }
     }
 
@@ -261,7 +247,7 @@ public class GameFragment extends BaseFragment implements View.OnClickListener, 
             if (isServerUnavailable) {
                 data = loadDataFromLocal(mIndex);
             }
-            if (CollectionUtils.isEmpty(data)) {
+            if (data == null || data.isEmpty()) {
                 refreshLayout.setEnabled(true);
                 refreshLayout.setRefreshing(false);
                 if (mLoading.getVisibility() == View.VISIBLE) {
@@ -304,15 +290,9 @@ public class GameFragment extends BaseFragment implements View.OnClickListener, 
     private void initLocalGameList() {
         //只初始化一次预置数据
         List<GameItemBean> data = SPManager.getInstance().getGameHomeList();
-        if (!CollectionUtils.isEmpty(data)) {
-            return;
-        }
-
+        if (data != null && !data.isEmpty()) return;
         List<GameItemBean> wallpaperList = AssetsUtil.getGameHome(getContext());
-        if (CollectionUtils.isEmpty(wallpaperList)) {
-            return;
-        }
-
+        if (wallpaperList != null && !wallpaperList.isEmpty()) return;
         SPManager.getInstance().putGameHomeList(wallpaperList);
     }
 
@@ -324,7 +304,7 @@ public class GameFragment extends BaseFragment implements View.OnClickListener, 
     private void saveDataToLocal(List<GameItemBean> data) {
         // 将新增数据添加到sp中, 第一次加载失败后分页加载只加载本地数据
         List<GameItemBean> local = SPManager.getInstance().getGameHomeList();
-        if (CollectionUtils.isEmpty(local) || CollectionUtils.isEmpty(data)) return;
+        if (local == null || local.isEmpty() || data == null || data.isEmpty()) return;
         for (GameItemBean item : data) {
             int index = local.indexOf(item);
             if (index > -1) {

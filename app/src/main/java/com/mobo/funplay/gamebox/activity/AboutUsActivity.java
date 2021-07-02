@@ -1,15 +1,12 @@
 package com.mobo.funplay.gamebox.activity;
 
-import androidx.fragment.app.Fragment;
-
 import android.content.Intent;
 import android.graphics.Paint;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+
 import com.mobo.funplay.gamebox.R;
-import com.mobo.funplay.gamebox.tracker.MyTracker;
 import com.mobo.funplay.gamebox.utils.SystemUtils;
 
 /**
@@ -29,7 +26,6 @@ public class AboutUsActivity extends BaseActivity {
 
     @Override
     protected void onCreate() {
-        track(MyTracker.click_aboutus);
     }
 
     @Override

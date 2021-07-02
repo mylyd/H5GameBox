@@ -1,8 +1,5 @@
 package com.mobo.funplay.gamebox.activity;
 
-import androidx.fragment.app.Fragment;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
@@ -14,13 +11,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import com.mobo.funplay.gamebox.R;
 import com.mobo.funplay.gamebox.adapter.ViewPagerFragmentAdapter;
 import com.mobo.funplay.gamebox.constants.Constants;
 import com.mobo.funplay.gamebox.fragment.SearchLabelFragment;
 import com.mobo.funplay.gamebox.fragment.SearchResultsFragment;
 import com.mobo.funplay.gamebox.manager.SPManager;
-import com.mobo.funplay.gamebox.tracker.MyTracker;
 import com.mobo.funplay.gamebox.views.UnTouchScrollViewPager;
 
 import java.util.ArrayList;
@@ -42,7 +41,6 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
     @Override
     protected void onCreate() {
-        track(MyTracker.click_search);
     }
 
     @Override

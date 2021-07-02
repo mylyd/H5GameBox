@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
 
-import com.google.android.gms.common.util.CollectionUtils;
-import com.mobo.funplay.gamebox.BuildConfig;
 import com.mobo.funplay.gamebox.bean.push.LocalPushConfig;
 import com.mobo.funplay.gamebox.bean.push.LocalPushMessage;
 import com.mobo.funplay.gamebox.interfaces.CommonCallback;
@@ -22,8 +20,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import ad.mobo.common.network.RetrofitNetwork;
 
 
 /**
@@ -47,7 +43,7 @@ public class LocalPushManager {
         if (!GrayStatus.push_H5) return;
 
         List<Integer> intervals = SPManager.getInstance().getLocalPushIntervalList();
-        if (CollectionUtils.isEmpty(intervals)) return;
+        if (intervals == null || intervals.isEmpty()) return;
 
         // 第一次启动时注册多个一次性推送任务
         long currentTime = System.currentTimeMillis() / INTERVAL_MINUTES;
@@ -153,7 +149,7 @@ public class LocalPushManager {
 
     private void initLocalPushConfig(Context context) {
         List<Integer> intervals = SPManager.getInstance().getLocalPushIntervalList();
-        if (CollectionUtils.isEmpty(intervals)) {
+        if (intervals == null || intervals.isEmpty()) {
             LocalPushConfig.DataBean config = AssetsUtil.getLocalPushList(context);
             saveLocalPushConfig(config);
         }
@@ -163,12 +159,12 @@ public class LocalPushManager {
         if (config == null) return;
 
         List<Integer> intervals = config.getInterval();
-        if (!CollectionUtils.isEmpty(intervals)) {
+        if (intervals != null && !intervals.isEmpty()) {
             SPManager.getInstance().putLocalPushIntervalList(intervals);
         }
 
         List<List<LocalPushMessage>> messages = config.getMessages();
-        if (!CollectionUtils.isEmpty(messages)) {
+        if (messages != null && !messages.isEmpty()) {
             List<LocalPushMessage> messageList = new ArrayList<>();
             for (int i = 0; i < messages.size(); i++) {
                 messageList.addAll(messages.get(i));

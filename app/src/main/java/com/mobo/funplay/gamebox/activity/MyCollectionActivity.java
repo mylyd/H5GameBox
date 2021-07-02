@@ -15,7 +15,6 @@ import com.mobo.funplay.gamebox.adapter.GameCollectionAdapter;
 import com.mobo.funplay.gamebox.bean.GameItemBean;
 import com.mobo.funplay.gamebox.constants.Constants;
 import com.mobo.funplay.gamebox.manager.SPManager;
-import com.mobo.funplay.gamebox.tracker.MyTracker;
 
 import java.util.List;
 
@@ -37,7 +36,6 @@ public class MyCollectionActivity extends BaseActivity {
 
     @Override
     protected void onCreate() {
-        track(MyTracker.click_mycollection);
     }
 
     @Override
@@ -63,7 +61,6 @@ public class MyCollectionActivity extends BaseActivity {
             adapter.reset(beans);
             layoutEmpty.setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
-            track(MyTracker.show_collection_page_, 1);
         } else {
             layoutEmpty.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);

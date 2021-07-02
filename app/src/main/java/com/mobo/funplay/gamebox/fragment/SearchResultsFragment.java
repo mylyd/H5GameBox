@@ -27,7 +27,6 @@ import com.mobo.funplay.gamebox.dialog.ConfirmDialog;
 import com.mobo.funplay.gamebox.interfaces.CommonCallback;
 import com.mobo.funplay.gamebox.manager.RetrofitManager;
 import com.mobo.funplay.gamebox.manager.SPManager;
-import com.mobo.funplay.gamebox.tracker.MyTracker;
 import com.mobo.funplay.gamebox.utils.SystemUtils;
 import com.mobo.funplay.gamebox.utils.Utils;
 
@@ -226,7 +225,6 @@ public class SearchResultsFragment extends BaseFragment implements View.OnClickL
             }
         }
         adapter.reset(data.getWallpapers());
-        track(MyTracker.show_searchresult_page_, 1);
     }
 
     private void setFailureData() {

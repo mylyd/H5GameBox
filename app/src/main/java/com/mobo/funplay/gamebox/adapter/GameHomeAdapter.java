@@ -14,7 +14,6 @@ import com.mobo.funplay.gamebox.activity.GamePreviewActivity;
 import com.mobo.funplay.gamebox.bean.GameItemBean;
 import com.mobo.funplay.gamebox.constants.Constants;
 import com.mobo.funplay.gamebox.manager.SPManager;
-import com.mobo.funplay.gamebox.tracker.MyTracker;
 
 /**
  * @Description: 主页Game游戏分类列表适配器
@@ -126,7 +125,6 @@ public class GameHomeAdapter extends BaseNativeAdAdapter<GameItemBean> {
             SPManager.addGameCollectBean(bean);
             int likeNum = SPManager.getInstance().getInt(Constants.DATA_COLLECT_GAME_LIST_NUM, 0);
             SPManager.getInstance().setInt(Constants.DATA_COLLECT_GAME_LIST_NUM, likeNum + 1);
-            track(MyTracker.click_game_collect_, bean.getId());
         }
         notifyItemChanged(position);
     }

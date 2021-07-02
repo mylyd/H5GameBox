@@ -1,24 +1,21 @@
 package com.mobo.funplay.gamebox.activity;
 
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.mobo.funplay.gamebox.MyApp;
 import com.mobo.funplay.gamebox.R;
 import com.mobo.funplay.gamebox.adapter.ViewPagerFragmentAdapter;
-import com.mobo.funplay.gamebox.bean.GameItemBean;
 import com.mobo.funplay.gamebox.constants.Constants;
 import com.mobo.funplay.gamebox.dialog.ConfirmDialog;
 import com.mobo.funplay.gamebox.dialog.PushGameDialog;
@@ -28,7 +25,6 @@ import com.mobo.funplay.gamebox.fragment.HotFragment;
 import com.mobo.funplay.gamebox.fragment.MineFragment;
 import com.mobo.funplay.gamebox.interfaces.GrayStatus;
 import com.mobo.funplay.gamebox.manager.SPManager;
-import com.mobo.funplay.gamebox.tracker.MyTracker;
 import com.mobo.funplay.gamebox.views.UnTouchScrollViewPager;
 
 import java.util.ArrayList;
@@ -268,7 +264,6 @@ public class MainActivity extends BaseActivity {
         if (pushGameDialog != null && !pushGameDialog.isShowing()) {
             pushGameDialog.show();
             SPManager.getInstance().setLong(Constants.PUSH_TIME_KEY, System.currentTimeMillis());
-            track(MyTracker.show_suggest_img);
         }
     }
 }

@@ -1,21 +1,15 @@
 package com.mobo.funplay.gamebox.adapter;
 
-import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mobo.funplay.gamebox.tracker.FacebookTracker;
-import com.mobo.funplay.gamebox.tracker.FirebaseTracker;
 import com.mobo.funplay.gamebox.views.LoadMoreRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import ad.mobo.base.bean.PullInfos;
-import ad.mobo.base.view.AbsNativeDisplayView;
 
 /**
  * author : jzhou
@@ -27,20 +21,13 @@ public abstract class BaseNativeAdAdapter<T> extends RecyclerView.Adapter<BaseNa
     protected final static int ITEM_NATIVE_AD = LoadMoreRecyclerView.TYPE_FULL_ITEM;
     protected final static int ITEM_DATA = 1;
 
-    private PullInfos mAdId;
     private boolean isAdInVisible;
     private List<T> mDataList;
     protected OnItemClickListener<T> mOnItemClickListener;
 
     public BaseNativeAdAdapter() {
-        this.mDataList = new ArrayList<>();
         this.isAdInVisible = true;
-    }
-
-    public BaseNativeAdAdapter(boolean adInVisible, PullInfos adId) {
-        this.isAdInVisible = adInVisible;
         this.mDataList = new ArrayList<>();
-        this.mAdId = adId;
     }
 
     public BaseNativeAdAdapter(boolean adInVisible, List<T> items) {
@@ -214,37 +201,6 @@ public abstract class BaseNativeAdAdapter<T> extends RecyclerView.Adapter<BaseNa
         mOnItemClickListener = listener;
     }
 
-    protected void track(String track, int id) {
-        track(track, id, true);
-    }
-
-    protected void track(String track) {
-        track(track, true);
-    }
-
-    /**
-     * @param track track字段
-     * @param id    传入的id
-     * @param isFb  是否开启fb track
-     */
-    protected void track(String track, int id, boolean isFb) {
-        FirebaseTracker.getInstance().track(track + id);
-        if (isFb) {
-            FacebookTracker.getInstance().track(track + id);
-        }
-    }
-
-    /**
-     * @param track track字段
-     * @param isFb  是否开启fb track
-     */
-    protected void track(String track, boolean isFb) {
-        FirebaseTracker.getInstance().track(track);
-        if (isFb) {
-            FacebookTracker.getInstance().track(track);
-        }
-    }
-
     public interface OnItemClickListener<T> {
         /**
          * @param itemPosition 显示在RecyclerView中位置
@@ -264,12 +220,9 @@ public abstract class BaseNativeAdAdapter<T> extends RecyclerView.Adapter<BaseNa
     }
 
     public class NativeAdViewHolder extends ItemViewHolder {
-        private AbsNativeDisplayView mContainer;
 
         public NativeAdViewHolder(View itemView) {
             super(itemView);
-            /*mContainer = (AbsNativeDisplayView) itemView;
-            mContainer.inflateLayout(R.layout.native_ad_layout, AdInfoUtil.getDefaultAdIdsHolder());*/
         }
 
         public void bindViewHolder(final int position) {

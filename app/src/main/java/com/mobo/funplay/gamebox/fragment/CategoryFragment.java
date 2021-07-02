@@ -1,19 +1,17 @@
 package com.mobo.funplay.gamebox.fragment;
 
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.os.Environment;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.common.util.CollectionUtils;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.mobo.funplay.gamebox.R;
 import com.mobo.funplay.gamebox.adapter.GameCategoryAdapter;
 import com.mobo.funplay.gamebox.bean.GameBean;
@@ -22,7 +20,6 @@ import com.mobo.funplay.gamebox.interfaces.GrayStatus;
 import com.mobo.funplay.gamebox.interfaces.ListCallback;
 import com.mobo.funplay.gamebox.manager.RetrofitManager;
 import com.mobo.funplay.gamebox.manager.SPManager;
-import com.mobo.funplay.gamebox.tracker.MyTracker;
 import com.mobo.funplay.gamebox.utils.AssetsUtil;
 import com.mobo.funplay.gamebox.utils.SystemUtils;
 
@@ -72,7 +69,7 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
         initActionBar();
         getTitle().setText(R.string.category);
         getGameIcon().setVisibility(View.VISIBLE);
-        forGameHomeUrlListener(this,getGameIcon());
+        forGameHomeUrlListener(this, getGameIcon());
 
         recyclerView = findViewById(R.id.rv_game);
         mSwipeLayout = findViewById(R.id.refresh_layout);
@@ -160,12 +157,11 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
         mSwipeLayout.setEnabled(true);
         mSwipeLayout.setRefreshing(false);
         gameAdapter.reset(data);
-        track(MyTracker.show_category_page_, 1);
     }
 
     private void setFailureData() {
         List<GameBean> data = SPManager.getInstance().getGameCategoryList();
-        if (CollectionUtils.isEmpty(data)) {
+        if (data == null || data.isEmpty()) {
             mSwipeLayout.setEnabled(true);
             mSwipeLayout.setRefreshing(false);
             if (mLoading.getVisibility() == View.VISIBLE) {
@@ -185,12 +181,12 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
     private void initLocalGameList() {
         //只初始化一次预置数据
         List<GameBean> data = SPManager.getInstance().getGameCategoryList();
-        if (!CollectionUtils.isEmpty(data)) {
+        if (data != null && !data.isEmpty()) {
             return;
         }
 
         List<GameBean> gameList = AssetsUtil.getGameCategory(getContext());
-        if (CollectionUtils.isEmpty(gameList)) {
+        if (gameList == null || gameList.isEmpty()) {
             return;
         }
 
@@ -205,7 +201,7 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
     private void saveDataToLocal(List<GameBean> data) {
         // 将新增数据添加到sp中, 第一次加载失败后分页加载只加载本地数据
         List<GameBean> local = SPManager.getInstance().getGameCategoryList();
-        if (CollectionUtils.isEmpty(local) || CollectionUtils.isEmpty(data)) return;
+        if (local == null || local.isEmpty() || data == null || data.isEmpty()) return;
         for (GameBean item : data) {
             int index = local.indexOf(item);
             if (index > -1) {

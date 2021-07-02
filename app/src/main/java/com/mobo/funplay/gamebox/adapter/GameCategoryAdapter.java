@@ -10,11 +10,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.ads.formats.UnifiedNativeAd;
 import com.mobo.funplay.gamebox.R;
 import com.mobo.funplay.gamebox.activity.GameCategoryListActivity;
 import com.mobo.funplay.gamebox.bean.GameBean;
-import com.mobo.funplay.gamebox.tracker.MyTracker;
 import com.mobo.funplay.gamebox.utils.SystemUtils;
 import com.mobo.funplay.gamebox.views.CategoryItemDecoration;
 
@@ -100,7 +98,6 @@ public class GameCategoryAdapter extends BaseNativeAdAdapter<GameBean> {
             GameBean item = getDataByItemPosition(position);
             if (item == null)
                 return;
-            track(MyTracker.click_category_more);
             //More 跳转
             GameCategoryListActivity.newStart(mFragment, item, false, position);
         }

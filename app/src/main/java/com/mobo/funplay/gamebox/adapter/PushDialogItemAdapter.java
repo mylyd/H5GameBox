@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -15,9 +14,6 @@ import com.mobo.funplay.gamebox.R;
 import com.mobo.funplay.gamebox.activity.GamePreviewActivity;
 import com.mobo.funplay.gamebox.bean.GameItemBean;
 import com.mobo.funplay.gamebox.constants.Constants;
-import com.mobo.funplay.gamebox.tracker.FacebookTracker;
-import com.mobo.funplay.gamebox.tracker.FirebaseTracker;
-import com.mobo.funplay.gamebox.tracker.MyTracker;
 
 import java.util.List;
 
@@ -81,8 +77,6 @@ public class PushDialogItemAdapter extends RecyclerView.Adapter<PushDialogItemAd
                 return;
             }
             GamePreviewActivity.newStart(activity, item, Constants.GAME_PUSH);
-            FirebaseTracker.getInstance().track(MyTracker.click_suggest_img);
-            FacebookTracker.getInstance().track(MyTracker.click_suggest_img);
         }
     }
 }
